@@ -24,4 +24,21 @@ const movieSchema = new mongoose.Schema({
         enum:MOVIE_GENRE
     },
 
+    producer:{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Participants'
+    },
+    director:{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Participants'
+    },
+    actors:[{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Participants'
+    }]
+
 })
+
+
+const Movie = mongoose.model('Movie', movieSchema)
+export default Movie
