@@ -12,9 +12,9 @@ export const getAllMovies = async() =>{
 }
 
 
-export const createMovieByName = async(name, age, role) =>{
+export const createMovieByName = async(name, duration, rating, genre) =>{
     //this will just save in the memory
-    const newMovie = new Movies({name, age, role})
+    const newMovie = new Movies({name, duration, rating, genre})
     //actually this will save in the dB
     const result = await newMovie.save()
 
@@ -41,13 +41,13 @@ export const getMovieByID = async(movieID) =>{
 }
 
 
-export const updateMovieByID = async(movieID, name, age, role) =>{
+export const updateMovieByID = async(movieID, name, duration, rating, genre) =>{
     if(!mongoose.Types.ObjectId.isValid(movieID)){
         console.log("Invalid Object ID")
         return null
     }
 
-    const result = await Participants.findByIdAndUpdate(movieID, {name, age, role}, {new:true})
+    const result = await Participants.findByIdAndUpdate(movieID, {name, duration, rating, genre}, {new:true})
 
     if(!result){
         return null
