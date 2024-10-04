@@ -4,7 +4,7 @@ import Movies from './schema/movieSchema.js'
 
 export const getAllMovies = async() =>{
 
-    const result = await Movies.find();
+    const result = await Movies.find().populate('producer', '-_id -role').populate('director', '-_id -role').populate('actors', '-_id -role');
     if (!result){
         return []
     }
@@ -30,8 +30,7 @@ export const getMovieByID = async(movieID) =>{
         console.log("Invalid Object ID")
         return null
     }
-
-    const result = await Movies.findById(movieID)
+    const result = await Movies.findById(movieId).populate('producer', '-_id -role').populate('director', '-_id -role').populate('actors', '-_id -role');
 
     if(!result){
         return null
