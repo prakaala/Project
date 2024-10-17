@@ -62,9 +62,7 @@ export const updateParticipant = async(req, res) =>{
 
     const id = req?.params.id?? '';
     const {name, age, role } = req.body
-
     const result = await updateParticipantByID(id, name, age, role)
-    
 
     if(!result){
         res.status(404).json({message:'Not Found'})

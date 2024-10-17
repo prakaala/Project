@@ -15,7 +15,7 @@ app.get('/ping', (req, res)=>{
         res.status(200).json({"message": "pong"})
 })  
 
-app.use('/roudf', route)
+app.use('/route', route)
 
 
 const PORT = process.env.PORT 
