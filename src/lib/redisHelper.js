@@ -6,7 +6,7 @@ export const getDataFromRedis = async (key) =>{
 }
 
 export const setDataToRedis = async (key, data, cacheDuration) =>{
-    await redisClient.setex(key, cacheDuration, JSON.stringify(data))
+    await redisClient.setex(cacheDuration, key,  JSON.stringify(data))
 
     return
 }
