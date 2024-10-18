@@ -3,7 +3,8 @@ import dotenv from 'dotenv'
 import { DB_NAME  } from "./constants.js"
 import connect from "./config/db.js"
 
-import  route from "./controller/participantController.js"
+import  participants from "./controller/participantController.js"
+import movies from "./controller/movieController.js"
 
 dotenv.config()
 
@@ -15,8 +16,8 @@ app.get('/ping', (req, res)=>{
         res.status(200).json({"message": "pong"})
 })  
 
-app.use('/route', route)
-
+app.use('/participants', participants)
+app.use('/movies', movies)
 
 const PORT = process.env.PORT 
 await connect(DB_NAME)
