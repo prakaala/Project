@@ -20,7 +20,7 @@ export const getAllParticipant = async (req, res) =>{
     }
     const result = await getAllParticipants();
     console.log("Getting data from database:")
-    await setDataToRedis(REDIS_KEY, result, REDIS_CACHE)
+    await setDataToRedis( REDIS_CACHE, result, REDIS_KEY)
 
     res.status(200).json(result)
 

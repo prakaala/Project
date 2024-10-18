@@ -44,9 +44,10 @@ export const getMoviesByID = async (req, res) =>{
         res.status(404).json("NotFpund")
         return null
     }
+    
+    console.log("Found  from DB");
     res.status(200).json(result)
-    console.log("Fetching from DB");
-    await setDataToRedis(REDIS_CACHE, result, REDIS_KEY)
+    // await setDataToRedis(REDIS_CACHE, result, REDIS_KEY)
     //so no return here??
     return
 }
